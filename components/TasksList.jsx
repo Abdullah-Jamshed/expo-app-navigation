@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { View, Text, StyleSheet, FlatList, TouchableOpacity, ScrollView } from "react-native";
+import { View, Text, StyleSheet, FlatList, SafeAreaView, ScrollView } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 const TasksList = ({ todos, deleteItem }) => {
   const deleteTask = (index) => {
@@ -8,20 +8,20 @@ const TasksList = ({ todos, deleteItem }) => {
 
   return (
     <View>
-      <ScrollView style={style.scroll}>
-        <FlatList
-          data={todos}
-          renderItem={(data, index) => {
-            return (
-              <View key={index} style={style.item}>
-                <Text style={style.itemContent}>{data.item.value}</Text>
-                <AntDesign name='delete' size={18} onPress={() => deleteTask(data.index)} />
-              </View>
-            );
-          }}
-          keyExtractor={(item) => item.id}
-        />
-      </ScrollView>
+      <SafeAreaView style={style.scroll}>
+          <FlatList
+            data={todos}
+            renderItem={(data, index) => {
+              return (
+                <View key={index} style={style.item}>
+                  <Text style={style.itemContent}>{data.item.value}</Text>
+                  <AntDesign name='delete' size={18} onPress={() => deleteTask(data.index)} />
+                </View>
+              );
+            }}
+            keyExtractor={(item) => item.id}
+          />
+      </SafeAreaView>
     </View>
   );
 };

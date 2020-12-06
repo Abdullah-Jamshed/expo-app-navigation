@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { StyleSheet, Text, View, ScrollView, TouchableOpacity, TextInput } from "react-native";
+import { StyleSheet, Text, View, Image, TouchableOpacity, TextInput } from "react-native";
 import Header from "./components/Header";
 import TasksList from "./components/TasksList";
 
@@ -38,7 +38,8 @@ export default function App() {
         </View>
       ) : (
         <View style={styles.intialScreen}>
-          <Text style={styles.screenText}>Add todo Items</Text>
+          <Image source={{ uri: "https://i.pinimg.com/originals/52/6a/bf/526abf16cc3e74882fa7304abc0f841c.png" }} style={{ width: 200, height: 200 }} />
+          <Text style={styles.screenText}>Add Todo Tasks</Text>
         </View>
       )}
       <View style={styles.main3}>
@@ -78,7 +79,7 @@ const styles = StyleSheet.create({
     width: "100%",
     backgroundColor: "white",
     alignItems: "flex-end",
-    flex: 1.2,
+    flex: 1.4,
   },
   addCont: {
     backgroundColor: "#5682e8",
@@ -88,7 +89,8 @@ const styles = StyleSheet.create({
     width: 70,
     height: 70,
     borderRadius: 100,
-    marginRight: 10,
+    marginRight: 20,
+    zIndex: 99
   },
   addText: {
     color: "white",
@@ -127,5 +129,6 @@ const styles = StyleSheet.create({
   },
   screenText: {
     color: "#333",
+    fontSize: 25
   },
 });
