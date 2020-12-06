@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { View, Text, StyleSheet, FlatList, TouchableOpacity, ScrollView } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 const TasksList = ({ todos, deleteItem }) => {
@@ -46,13 +46,6 @@ const style = StyleSheet.create({
     paddingLeft: 10,
     fontSize: 17,
   },
-  itemBtnContent: {
-    padding: 5,
-    paddingLeft: 10,
-    fontSize: 16,
-    color: "white",
-  },
-
   scroll: {
     width: "100%",
   },

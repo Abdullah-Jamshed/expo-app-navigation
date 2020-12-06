@@ -32,9 +32,15 @@ export default function App() {
           <TextInput value={inputValue} onChangeText={(text) => setInputValue(text)} autoFocus placeholder='ADD TASK' />
         </View>
       )}
-      <View style={styles.main2}>
-        <TasksList todos={todos} deleteItem={deleteItem} />
-      </View>
+      {todos.length ? (
+        <View style={styles.main2}>
+          <TasksList todos={todos} deleteItem={deleteItem} />
+        </View>
+      ) : (
+        <View style={styles.intialScreen}>
+          <Text style={styles.screenText}>Add todo Items</Text>
+        </View>
+      )}
       <View style={styles.main3}>
         {!state ? (
           <TouchableOpacity activeOpacity={0.7} onPress={() => setstate(true)} style={styles.addCont}>
@@ -113,5 +119,13 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "center",
     marginTop: 5,
+  },
+  intialScreen: {
+    flex: 8,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  screenText: {
+    color: "#333",
   },
 });
