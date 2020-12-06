@@ -29,7 +29,7 @@ export default function App() {
       <Header />
       {state && (
         <View style={styles.input}>
-          <TextInput value={inputValue} onChangeText={(text) => setInputValue(text)} placeholder='ADD TASK' />
+          <TextInput value={inputValue} onChangeText={(text) => setInputValue(text)} autoFocus placeholder='ADD TASK' />
         </View>
       )}
       <View style={styles.main2}>
@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
   main2: {
     width: "100%",
     flex: 8,
-    marginTop: 10,
+    marginTop: 50,
   },
   main3: {
     width: "100%",

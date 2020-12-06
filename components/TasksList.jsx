@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { View, Text, StyleSheet, FlatList, TouchableOpacity, ScrollView } from "react-native";
-
+import { AntDesign } from "@expo/vector-icons";
 const TasksList = ({ todos, deleteItem }) => {
   const deleteTask = (index) => {
     deleteItem(index);
@@ -11,15 +11,11 @@ const TasksList = ({ todos, deleteItem }) => {
       <ScrollView style={style.scroll}>
         <FlatList
           data={todos}
-          renderItem={(data,index) => {
+          renderItem={(data, index) => {
             return (
               <View key={index} style={style.item}>
                 <Text style={style.itemContent}>{data.item.value}</Text>
-                <TouchableOpacity style={style.itemBtn}>
-                  <Text onPress={() => deleteTask(data.index)} style={style.itemBtnContent}>
-                    Delete
-                  </Text>
-                </TouchableOpacity>
+                <AntDesign name='delete' size={18} onPress={() => deleteTask(data.index)} />
               </View>
             );
           }}
@@ -32,7 +28,7 @@ const TasksList = ({ todos, deleteItem }) => {
 
 const style = StyleSheet.create({
   item: {
-    padding: 5,
+    padding: 10,
     borderTopColor: "#f7f7f7",
     borderLeftColor: "#f7f7f7",
     borderRightColor: "#f7f7f7",
@@ -42,12 +38,11 @@ const style = StyleSheet.create({
     borderLeftColor: "#5682e8",
     marginBottom: 10,
     marginHorizontal: 10,
-    display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
+    alignItems: "center",
   },
   itemContent: {
-    padding: 5,
     paddingLeft: 10,
     fontSize: 17,
   },
@@ -56,16 +51,8 @@ const style = StyleSheet.create({
     paddingLeft: 10,
     fontSize: 16,
     color: "white",
-    // fontWeight:"700",
   },
-  itemBtn: {
-    alignItems: "center",
-    justifyContent: "center",
-    width: 70,
-    // height: 25,
-    backgroundColor: "#5682e8",
-    borderRadius: 5,
-  },
+
   scroll: {
     width: "100%",
   },
