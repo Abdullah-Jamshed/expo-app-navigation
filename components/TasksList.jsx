@@ -11,9 +11,9 @@ const TasksList = ({ todos, deleteItem }) => {
       <ScrollView style={style.scroll}>
         <FlatList
           data={todos}
-          renderItem={(data) => {
+          renderItem={(data,index) => {
             return (
-              <View key={data.index} style={style.item}>
+              <View key={index} style={style.item}>
                 <Text style={style.itemContent}>{data.item.value}</Text>
                 <TouchableOpacity style={style.itemBtn}>
                   <Text onPress={() => deleteTask(data.index)} style={style.itemBtnContent}>

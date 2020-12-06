@@ -13,7 +13,7 @@ export default function App() {
       const todo = { value: inputValue };
       setTodos([todo, ...todos]);
       setstate(false);
-      setInputValue("")
+      setInputValue("");
     }
   };
   const deleteItem = (index) => {
@@ -33,9 +33,7 @@ export default function App() {
         </View>
       )}
       <View style={styles.main2}>
-        {/* <ScrollView style={styles.scroll}> */}
-          <TasksList todos={todos} deleteItem={deleteItem} />
-        {/* </ScrollView> */}
+        <TasksList todos={todos} deleteItem={deleteItem} />
       </View>
       <View style={styles.main3}>
         {!state ? (
