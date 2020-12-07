@@ -1,10 +1,11 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, Button } from "react-native";
 
-const Header = () => {
+const Header = ({ navigation }) => {
   return (
     <View style={style.header}>
       <Text style={style.heading}>Todo App</Text>
+      <Button title='Home' onPress={() => navigation.navigate("Home")} />
     </View>
   );
 };
@@ -15,6 +16,9 @@ const style = StyleSheet.create({
     backgroundColor: "#5682e8",
     padding: 8,
     paddingTop: 30,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
   },
   heading: {
     textAlign: "center",
